@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
 #define MAX 100+1
 #define K_MAX 10000+1
 using namespace std;
@@ -16,7 +15,6 @@ int main()
         cin >> val;
         coins_val.push_back(val);  
     }
-    sort(coins_val.begin(),coins_val.end());
     num_cases[0] = 1;
     for(int i=0;i<n;i++)
     {
@@ -27,5 +25,4 @@ int main()
     }   
     cout << num_cases[k];
     return 0;
-
 }
