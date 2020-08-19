@@ -4,7 +4,6 @@ INF = int(1e9)
 N,M = map(int,stdin.readline().split())
 
 dist = [[INF] * (N+1) for _ in range(N+1)]
-edge = [[0] *(N+1) for _ in range(N+1)]
 
 for i in range(N+1):
     dist[i][i] = 0
