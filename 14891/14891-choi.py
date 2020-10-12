@@ -25,18 +25,17 @@ def roll_wheel(wheels, index, dir):
 
 
 def do_wheels(wheels, start, dir, visited):
-    if 0 <= start < 4:
-        if not visited[start]:
-            l = wheels[start][LEFT]
-            r = wheels[start][RIGHT]
-            roll_wheel(wheels, start, dir)
-            visited[start] = True
-            if start != 0:
-                if l != wheels[start-1][RIGHT]:
-                    do_wheels(wheels,start-1,-dir,visited)
-            if start != 3:
-                if r != wheels[start+1][LEFT]:
-                    do_wheels(wheels,start+1,-dir,visited)
+    if not visited[start]:
+        l = wheels[start][LEFT]
+        r = wheels[start][RIGHT]
+        roll_wheel(wheels, start, dir)
+        visited[start] = True
+        if start != 0:
+            if l != wheels[start-1][RIGHT] and not visited[start-1]:
+                do_wheels(wheels,start-1,-dir,visited)
+        if start != 3:
+            if r != wheels[start+1][LEFT] and not visited[start+1]:
+                do_wheels(wheels,start+1,-dir,visited)
     visited[start] = False
 
 for k in range(K):
